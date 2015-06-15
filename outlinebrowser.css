@@ -1,0 +1,86 @@
+.divRenderedOutline {
+	}
+.divOutlineSubs li {
+	list-style-type: none;
+	}
+.divRenderedOutline .ulOutlineList {
+	padding: 0;
+	}
+.divRenderedOutline .divOutlineText {
+	line-height: 135%;
+	font-size: 0.85em;
+	min-height: 0.85em;
+	color: black;
+	margin-bottom: 10px;
+	}
+.divRenderedOutline .divMarkdownSubs {
+	line-height: 150%;
+	font-size: 0.85em;
+	color: black;
+	}
+.divOutlineHead {
+	font-weight: bold;
+	}
+.divRenderedOutline .divOutlineHead .aOutlineTextLink {
+	color: #1E68A6;
+	}
+.divRenderedOutline .liHasSubs ul {
+	}
+.divRenderedOutline .liNoSubs {
+	}
+.divRenderedOutline .spOutlineIcon {
+	margin-right: -11px;
+	}
+.divRenderedOutline .aOutlineWedgeLink {
+	color: black;
+	}
+.divRenderedOutline .aOutlineWedgeLink i {
+	color: black;
+	cursor: pointer;
+	position: relative;
+	width: .5em;
+	left: -1em;
+	}
+.divRenderedOutline .aTwitterLink {
+	font-size: 0.9em;
+	cursor: pointer;
+	position: relative;
+	width: .5em;
+	left: -1.4em;
+	margin-right: -4px;
+	opacity: .4;
+	}
+.divRenderedOutline .aImageIconLink {
+	font-size: 0.9em;
+	cursor: pointer;
+	position: relative;
+	width: .5em;
+	left: -1.4em;
+	margin-right: -7px;
+	opacity: .4;
+	}
+.divRenderedOutline .divRenderedImage {
+	margin-bottom: 2px;
+	}
+
+.divRenderedOutline .aOutlineTextLink {
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
+	}
+.divRenderedOutline .spPermalink {
+	}
+.divRenderedOutline .spPermalink a {
+	text-decoration: none;
+	color: purple;
+	font-size: 10px;
+	font-weight: normal;
+	vertical-align: top;
+	margin-left: 3px;
+	}
+.divRenderedOutline code {
+	display: inline;
+	border: none;
+	color: black;
+	font-size: .85em;
+	}
