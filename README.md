@@ -18,7 +18,7 @@ As of the initial release, neither of these examples use this actual library, bu
 
 #### Demo app
 
-Here's a link to the <a href="http://fargo.io/code/shared/outlinebrowser/demo1/index.htm">demo app</a> on my server so you can see what <a href="https://github.com/scripting/outlineBrowser/blob/master/demo.html">demo.html</a> looks like.
+Here's a link to the <a href="http://fargo.io/code/shared/outlinebrowser/demo1/index.html">demo app</a> on my server so you can see what <a href="https://github.com/scripting/outlineBrowser/blob/master/demo.html">demo.html</a> looks like.
 
 #### Dependencies
 
