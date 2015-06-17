@@ -1,10 +1,16 @@
 # outlineBrowser
 
-JavaScript code to display the JSON outlines produced by liveblog.co.
+JavaScript code to display the JSON outlines.
 
 #### What it does
 
 It reads a JSON file that looks <a href="http://liveblog.co/users/davewiner/2015/05/13/appleWatchNotes.json">like this</a> and renders it as an expandable outline, <a href="http://fargo.io/code/shared/outlinebrowser/demo1/index.html">like this</a>.
+
+#### What is a JSON outline?
+
+1. It's a JSON object that contains a <i>text</i> value, any number of other values, and an array named <i>subs.</i>  
+
+2. Each object in <i>subs</i> conforms to rule 1. 
 
 #### Where this code is used
 
