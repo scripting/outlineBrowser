@@ -1,6 +1,9 @@
 //code that displays an outline jstruct in javascript
 
-var serialnumForRiverRender = 0;
+var outlineBrowserData = {
+	version: "0.40",
+	serialNum: 0
+	}
 
 function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkString, flExpanded) {
 	function stringLower (s) {
@@ -92,7 +95,6 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 			}
 		return (true);
 		}
-	
 	function debugNode (theNode) {
 		var attstext = "";
 		for (var x in theNode) {
@@ -176,7 +178,7 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 		}
 	function getHotText (outline) {
 		var origtext = outline.text;
-		return (expandableTextLink (origtext, serialnumForRiverRender)); //5/7/15 by DW
+		return (expandableTextLink (origtext, outlineBrowserData.serialNum)); //5/7/15 by DW
 		}
 	function hasSubs (outline) {
 		return (outline.subs != undefined) && (outline.subs.length > 0);
@@ -259,7 +261,7 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 	function addSubs (outline, flcollapsed, path) {
 		if (hasSubs (outline)) {
 			var style = getStylesString (outline, flcollapsed);
-			add ("<ul class=\"ulOutlineList ulLevel" + outlinelevel + "\" id=\"idOutlineLevel" + serialnumForRiverRender++ + "\"" + style + ">"); indentlevel++; outlinelevel++;
+			add ("<ul class=\"ulOutlineList ulLevel" + outlinelevel + "\" id=\"idOutlineLevel" + outlineBrowserData.serialNum++ + "\"" + style + ">"); indentlevel++; outlinelevel++;
 			for (var i = 0; i < outline.subs.length; i++) {
 				var child = outline.subs [i], flchildcollapsed = getBoolean (child.collapse), img = getImgHtml (child.img);
 				if (!beginsWith (child.text, "<rule")) { //5/28/15 by DW
@@ -267,7 +269,7 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 						var childpath = path + getNameAtt (child); //5/20/15 by DW
 						if (hasSubs (child)) {
 							add ("<li>"); indentlevel++;
-							add ("<div class=\"divOutlineText\">" + getIcon (serialnumForRiverRender, flchildcollapsed) + img + getHotText (child) + "</div>");
+							add ("<div class=\"divOutlineText\">" + getIcon (outlineBrowserData.serialNum, flchildcollapsed) + img + getHotText (child) + "</div>");
 							addSubs (child, flchildcollapsed, childpath + "/");
 							add ("</li>"); indentlevel--;
 							}
@@ -285,14 +287,14 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 	if (hasSubs (outline)) { //9/22/14 by DW
 		var flTopLevelCollapsed = !flExpanded, theText = getHotText (outline);
 		add ("<div class=\"divRenderedOutline\">"); indentlevel++;
-		add ("<div class=\"divItemHeader divOutlineHead divOutlineHeadHasSubs\">" + getIcon (serialnumForRiverRender, flTopLevelCollapsed) + theText + permalink + "</div>");
+		add ("<div class=\"divItemHeader divOutlineHead divOutlineHeadHasSubs\">" + getIcon (outlineBrowserData.serialNum, flTopLevelCollapsed) + theText + permalink + "</div>");
 		
 		if (flMarkdown) {
 			var markdowntext = getSubsMarkdownText (outline), style = "";
 			if (flTopLevelCollapsed) { //10/23/14 by DW
 				style = " style=\"display: none;\"";
 				}
-			var opendiv = "<div class=\"divMarkdownSubs\" id=\"idOutlineLevel" + serialnumForRiverRender++ + "\" " + style + ">";
+			var opendiv = "<div class=\"divMarkdownSubs\" id=\"idOutlineLevel" + outlineBrowserData.serialNum++ + "\" " + style + ">";
 			add (opendiv + marked (markdowntext) + "</div>");
 			}
 		else {
@@ -303,7 +305,7 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 		
 		add ("</div>"); indentlevel--;
 		
-		serialnumForRiverRender++; //9/22/14 by DW
+		outlineBrowserData.serialNum++; //9/22/14 by DW
 		}
 	else {
 		add ("<div class=\"divRenderedOutline\">"); indentlevel++;
