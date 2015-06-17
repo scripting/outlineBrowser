@@ -1,6 +1,6 @@
 # outlineBrowser
 
-JavaScript code to display the JSON outlines.
+JavaScript code to display JSON outlines.
 
 #### What it does
 
