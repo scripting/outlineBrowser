@@ -2,185 +2,168 @@
 
 var serialnumForRiverRender = 0;
 
-function stringLower (s) {
-	if (s === undefined) { //1/26/15 by DW
-		return ("");
+function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkString, flExpanded) {
+	function stringLower (s) {
+		if (s === undefined) { //1/26/15 by DW
+			return ("");
+			}
+		s = s.toString (); //1/26/15 by DW
+		return (s.toLowerCase ());
 		}
-	s = s.toString (); //1/26/15 by DW
-	return (s.toLowerCase ());
-	}
-function isAlpha (ch) {
-	return (((ch >= 'a') && (ch <= 'z')) || ((ch >= 'A') && (ch <= 'Z')));
-	}
-function isNumeric (ch) {
-	return ((ch >= '0') && (ch <= '9'));
-	}
-function stripMarkup (s) { //5/24/14 by DW
-	if ((s === undefined) || (s == null) || (s.length == 0)) {
-		return ("");
+	function isAlpha (ch) {
+		return (((ch >= 'a') && (ch <= 'z')) || ((ch >= 'A') && (ch <= 'Z')));
 		}
-	return (s.replace (/(<([^>]+)>)/ig, ""));
-	}
-function innerCaseName (text) { //8/12/14 by DW
-	var s = "", ch, flNextUpper = false;
-	text = stripMarkup (text); 
-	for (var i = 0; i < text.length; i++) {
-		ch = text [i];
-		if (isAlpha (ch) || isNumeric (ch)) { 
-			if (flNextUpper) {
-				ch = ch.toUpperCase ();
-				flNextUpper = false;
+	function isNumeric (ch) {
+		return ((ch >= '0') && (ch <= '9'));
+		}
+	function stripMarkup (s) { //5/24/14 by DW
+		if ((s === undefined) || (s == null) || (s.length == 0)) {
+			return ("");
+			}
+		return (s.replace (/(<([^>]+)>)/ig, ""));
+		}
+	function innerCaseName (text) { //8/12/14 by DW
+		var s = "", ch, flNextUpper = false;
+		text = stripMarkup (text); 
+		for (var i = 0; i < text.length; i++) {
+			ch = text [i];
+			if (isAlpha (ch) || isNumeric (ch)) { 
+				if (flNextUpper) {
+					ch = ch.toUpperCase ();
+					flNextUpper = false;
+					}
+				else {
+					ch = ch.toLowerCase ();
+					}
+				s += ch;
 				}
 			else {
-				ch = ch.toLowerCase ();
+				if (ch == ' ') { 
+					flNextUpper = true;
+					}
 				}
+			}
+		return (s);
+		}
+	function filledString (ch, ct) { //6/4/14 by DW
+		var s = "";
+		for (var i = 0; i < ct; i++) {
 			s += ch;
 			}
-		else {
-			if (ch == ' ') { 
-				flNextUpper = true;
-				}
+		return (s);
+		}
+	function getBoolean (val) { //12/5/13 by DW
+		switch (typeof (val)) {
+			case "string":
+				if (val.toLowerCase () == "true") {
+					return (true);
+					}
+				break;
+			case "boolean":
+				return (val);
+			case "number":
+				if (val == 1) {
+					return (true);
+					}
+				break;
 			}
-		}
-	return (s);
-	}
-function readHttpFile (url, callback, timeoutInMilliseconds) { //5/27/14 by DW
-	if (timeoutInMilliseconds === undefined) {
-		timeoutInMilliseconds = 30000;
-		}
-	var jxhr = $.ajax ({ 
-		url: url,
-		dataType: "text" , 
-		timeout: timeoutInMilliseconds 
-		}) 
-	.success (function (data, status) { 
-		callback (data);
-		}) 
-	.error (function (status) { 
-		console.log ("readHttpFile: url == " + url + ", error == " + jsonStringify (status));
-		callback (undefined);
-		});
-	}
-function filledString (ch, ct) { //6/4/14 by DW
-	var s = "";
-	for (var i = 0; i < ct; i++) {
-		s += ch;
-		}
-	return (s);
-	}
-function getBoolean (val) { //12/5/13 by DW
-	switch (typeof (val)) {
-		case "string":
-			if (val.toLowerCase () == "true") {
-				return (true);
-				}
-			break;
-		case "boolean":
-			return (val);
-		case "number":
-			if (val == 1) {
-				return (true);
-				}
-			break;
-		}
-	return (false);
-	}
-function beginsWith (s, possibleBeginning, flUnicase) { 
-	if (s.length == 0) { //1/1/14 by DW
 		return (false);
 		}
-	if (flUnicase === undefined) {
-		flUnicase = true;
-		}
-	if (flUnicase) {
-		for (var i = 0; i < possibleBeginning.length; i++) {
-			if (stringLower (s [i]) != stringLower (possibleBeginning [i])) {
-				return (false);
+	function beginsWith (s, possibleBeginning, flUnicase) { 
+		if (s.length == 0) { //1/1/14 by DW
+			return (false);
+			}
+		if (flUnicase === undefined) {
+			flUnicase = true;
+			}
+		if (flUnicase) {
+			for (var i = 0; i < possibleBeginning.length; i++) {
+				if (stringLower (s [i]) != stringLower (possibleBeginning [i])) {
+					return (false);
+					}
 				}
 			}
-		}
-	else {
-		for (var i = 0; i < possibleBeginning.length; i++) {
-			if (s [i] != possibleBeginning [i]) {
-				return (false);
+		else {
+			for (var i = 0; i < possibleBeginning.length; i++) {
+				if (s [i] != possibleBeginning [i]) {
+					return (false);
+					}
 				}
 			}
-		}
-	return (true);
-	}
-
-function debugNode (theNode) {
-	var attstext = "";
-	for (var x in theNode) {
-		if ((x != "subs") && (x != "parent") && (x != "created")) {
-			if (attstext.length > 0) {
-				attstext +=  ", ";
-				}
-			attstext += x + "=" + theNode [x];
-			}
-		}
-	return (attstext);
-	}
-function getNodeType (theNode) {
-	if (theNode.type == "include") {
-		return (theNode.includetype); //this allows include nodes to have types
-		}
-	else {
-		return (theNode.type);
-		}
-	}
-function getNameAtt (theNode) {
-	var nameatt = theNode.name;
-	if (nameatt === undefined) {
-		nameatt = innerCaseName (theNode.text);
-		}
-	return (nameatt);
-	}
-function typeIsDoc (theNode) {
-	var type = getNodeType (theNode);
-	return ((type !== undefined) && (type != "include") && (type != "link") && (type != "tweet"));
-	}
-function ecOutline (idnum) { 
-	var c = document.getElementById ("idOutlineWedge" + idnum), idUL = "#idOutlineLevel" + idnum;
-	if (c.className == "fa fa-caret-down") {
-		c.className = "fa fa-caret-right";
-		c.style.color = "black";
-		$(idUL).slideUp (75);
-		}
-	else {
-		c.className = "fa fa-caret-down";
-		c.style.color = "silver";
-		$(idUL).slideDown (75);
-		}
-	}
-function getIcon (idnum, flcollapsed) {
-	var wedgedir, color;
-	if (flcollapsed) {
-		wedgedir = "right";
-		color = "black";
-		}
-	else {
-		wedgedir = "down";
-		color = "silver";
+		return (true);
 		}
 	
-	var clickscript = "onclick=\"ecOutline (" + idnum + ")\" ";
-	var icon = "<span class=\"spOutlineIcon\"><a class=\"aOutlineWedgeLink\" " + clickscript + "><i class=\"fa fa-caret-" + wedgedir + "\" style=\"color: " + color + ";\" id=\"idOutlineWedge" + idnum + "\"></i></a></span>";
-	return (icon);
-	}
-function riverGetPermalinkString (urlPermalink, permalinkString) {
-	if (urlPermalink == undefined) {
-		return ("");
+	function debugNode (theNode) {
+		var attstext = "";
+		for (var x in theNode) {
+			if ((x != "subs") && (x != "parent") && (x != "created")) {
+				if (attstext.length > 0) {
+					attstext +=  ", ";
+					}
+				attstext += x + "=" + theNode [x];
+				}
+			}
+		return (attstext);
 		}
-	if (permalinkString == undefined) { 
-		permalinkString = "#";
+	function getNodeType (theNode) {
+		if (theNode.type == "include") {
+			return (theNode.includetype); //this allows include nodes to have types
+			}
+		else {
+			return (theNode.type);
+			}
 		}
-	return ("<div class=\"divOutlinePermalink\"><a href=\"" + urlPermalink + "\">" + permalinkString + "</a></div>");
-	}
-function expandableTextLink (theText, idLevel) {
-	return ("<a class=\"aOutlineTextLink\" onclick=\"ecOutline (" + idLevel + ")\">" + theText + "</a>");
-	}
-function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkString, flExpanded) {
+	function getNameAtt (theNode) {
+		var nameatt = theNode.name;
+		if (nameatt === undefined) {
+			nameatt = innerCaseName (theNode.text);
+			}
+		return (nameatt);
+		}
+	function typeIsDoc (theNode) {
+		var type = getNodeType (theNode);
+		return ((type !== undefined) && (type != "include") && (type != "link") && (type != "tweet"));
+		}
+	function ecOutline (idnum) { 
+		var c = document.getElementById ("idOutlineWedge" + idnum), idUL = "#idOutlineLevel" + idnum;
+		if (c.className == "fa fa-caret-down") {
+			c.className = "fa fa-caret-right";
+			c.style.color = "black";
+			$(idUL).slideUp (75);
+			}
+		else {
+			c.className = "fa fa-caret-down";
+			c.style.color = "silver";
+			$(idUL).slideDown (75);
+			}
+		}
+	function getIcon (idnum, flcollapsed) {
+		var wedgedir, color;
+		if (flcollapsed) {
+			wedgedir = "right";
+			color = "black";
+			}
+		else {
+			wedgedir = "down";
+			color = "silver";
+			}
+		
+		var clickscript = "onclick=\"ecOutline (" + idnum + ")\" ";
+		var icon = "<span class=\"spOutlineIcon\"><a class=\"aOutlineWedgeLink\" " + clickscript + "><i class=\"fa fa-caret-" + wedgedir + "\" style=\"color: " + color + ";\" id=\"idOutlineWedge" + idnum + "\"></i></a></span>";
+		return (icon);
+		}
+	function riverGetPermalinkString (urlPermalink, permalinkString) {
+		if (urlPermalink == undefined) {
+			return ("");
+			}
+		if (permalinkString == undefined) { 
+			permalinkString = "#";
+			}
+		return ("<div class=\"divOutlinePermalink\"><a href=\"" + urlPermalink + "\">" + permalinkString + "</a></div>");
+		}
+	function expandableTextLink (theText, idLevel) {
+		return ("<a class=\"aOutlineTextLink\" onclick=\"ecOutline (" + idLevel + ")\">" + theText + "</a>");
+		}
 	var htmltext = "", indentlevel = 0, permalink = riverGetPermalinkString (urlPermalink, permalinkString), outlinelevel = 0;
 	if (flMarkdown === undefined) {
 		flMarkdown = false;

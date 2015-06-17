@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<title>Outline browser demo app</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script src="http://fargo.io/code/jquery-1.9.1.min.js"></script>
+		<link href="http://fargo.io/code/bootstrap.css" rel="stylesheet">
+		<script src="http://fargo.io/code/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://fargo.io/code/fontAwesome/css/font-awesome.min.css"/>
+		<link href="http://fargo.io/code/ubuntuFont.css" rel="stylesheet" type="text/css">
+		
+		<script src="http://fargo.io/code/shared/outlinebrowser/outlinebrowser.js"></script>
+		<link href="http://fargo.io/code/shared/outlinebrowser/outlinebrowser.css" rel="stylesheet" type="text/css">
+		<script>
+			function readHttpFile (url, callback, timeoutInMilliseconds) { //5/27/14 by DW
+				if (timeoutInMilliseconds === undefined) {
+					timeoutInMilliseconds = 30000;
+					}
+				var jxhr = $.ajax ({ 
+					url: url,
+					dataType: "text" , 
+					timeout: timeoutInMilliseconds 
+					}) 
+				.success (function (data, status) { 
+					callback (data);
+					}) 
+				.error (function (status) { 
+					console.log ("readHttpFile: url == " + url + ", error == " + jsonStringify (status));
+					callback (undefined);
+					});
+				}
+			function startup () {
+				console.log ("startup");
+				readHttpFile ("http://liveblog.co/users/davewiner/2015/05/13/appleWatchNotes.json", function (s) {
+					var jstruct = JSON.parse (s);
+					$("#idOutlineDisplayer").html (renderOutlineBrowser (jstruct, false, undefined, undefined, true));
+					$("#idOutlineTitle").html (jstruct.text);
+					
+					});
+				}
+			</script>
+		<style>
+			body {
+				font-family: "Ubuntu";
+				font-size: 18px;
+				background-color: whitesmoke;
+				}
+			.divPageBody {
+				width: 60%;
+				margin-top: 90px;
+				margin-left: auto;
+				margin-right: auto;
+				border: 1px solid silver;
+				}
+			.divOutlineContainer {
+				margin-left: 50px;
+				margin-right: 25px;
+				margin-top: 10px;
+				margin-bottom: 35px;
+				}
+			.divOutlineTitle {
+				font-size: 52px;
+				font-weight: bold;
+				line-height: 110%;
+				}
+			.divOutlineDisplayer {
+				font-family: "Georgia";
+				font-size: 24px;
+				line-height: 140%;
+				margin-left: -25px;
+				margin-top: 1em;
+				}
+			.divOutlineHead {
+				display: none;
+				}
+			.divRenderedOutline .divOutlineText {
+				line-height: 145%;
+				}
+			</style>
+		</head>
+	<body>
+		<div class="divPageBody">
+			<div class="divOutlineContainer">
+				<div class="divOutlineTitle" id="idOutlineTitle">
+					</div>
+				<div class="divOutlineDisplayer" id="idOutlineDisplayer">
+					</div>
+				</div>
+			</div>
+		<script>
+			$(document).ready (function () {
+				startup ();
+				});
+			</script>
+		</body>
+	</html>
