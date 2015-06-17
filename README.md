@@ -8,7 +8,7 @@ It reads a JSON file that looks <a href="http://liveblog.co/users/davewiner/2015
 
 #### What is a JSON outline?
 
-1. It's a JSON object that contains a <i>text</i> value, any number of other values, and an array named <i>subs.</i>  
+1. It's a JSON object that contains a <i>text</i> value, any number of other scalar values, and an array named <i>subs.</i>  
 
 2. Each object in <i>subs</i> conforms to rule 1. 
 
