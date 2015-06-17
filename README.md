@@ -1,6 +1,6 @@
 # outlineBrowser
 
-JavaScript code to display the JSON outlines produced by the liveblog.co
+JavaScript code to display the JSON outlines produced by liveblog.co.
 
 #### What it does
 
