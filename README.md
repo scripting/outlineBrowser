@@ -2,13 +2,19 @@
 
 JavaScript code to display the JSON outlines produced by the liveblog.co
 
+#### What it does
+
+It reads a JSON file that looks <a href="http://liveblog.co/users/davewiner/2015/05/13/appleWatchNotes.json">like this</a> and renders it as an expandable outline, <a href="http://fargo.io/code/shared/outlinebrowser/demo1/index.html">like this</a>.
+
 #### Where this code is used
 
 I use this code in two places:
 
-1. To render outlines for reading in liveblog.co. (Example)
+1. To render outlines for reading in liveblog.co. (<a href="http://liveblog.co/users/davewiner/2015/05/13/appleWatchNotes.html">Example</a>)
 
-2. To render outlines in rivers, to view outlines included in news items. (Example)
+2. To render outlines in rivers, to view outlines included in news items. (<a href="http://radio3.io/rivers/demo1/index.html">Example</a>)
+
+As of the initial release, neither of these examples use this actual library, but the goal is to have them do so.
 
 #### Demo app
 
