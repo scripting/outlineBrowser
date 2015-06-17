@@ -41,15 +41,6 @@
 	width: .5em;
 	left: -1em;
 	}
-.divRenderedOutline .aTwitterLink {
-	font-size: 0.9em;
-	cursor: pointer;
-	position: relative;
-	width: .5em;
-	left: -1.4em;
-	margin-right: -4px;
-	opacity: .4;
-	}
 .divRenderedOutline .aImageIconLink {
 	font-size: 0.9em;
 	cursor: pointer;
@@ -83,4 +74,6 @@
 	border: none;
 	color: black;
 	font-size: .85em;
+	}
+.divRenderedOutline .divOutlineText a {
 	}
