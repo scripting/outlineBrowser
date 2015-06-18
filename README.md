@@ -4,7 +4,7 @@ JavaScript code to display JSON outlines.
 
 #### What it does
 
-It reads a JSON file that looks <a href="http://liveblog.co/users/davewiner/2015/05/13/appleWatchNotes.json">like this</a> and renders it as an expandable outline, <a href="http://fargo.io/code/browsers/demo1/">like this</a>.
+It reads a JSON file that looks <a href="http://liveblog.co/users/davewiner/2015/05/13/appleWatchNotes.json">like this</a> and renders it as an expandable outline, <a href="http://fargo.io/code/browsers/outlinebrowserdemo.html">like this</a>.
 
 #### What is a JSON outline?
 
@@ -24,7 +24,7 @@ As of the initial release, neither of these examples use this actual library, bu
 
 #### Demo app
 
-Here's a link to the <a href="http://fargo.io/code/browsers/demo1/">demo app</a> on my server so you can see what <a href="https://github.com/scripting/outlineBrowser/blob/master/demo.html">demo.html</a> looks like.
+Here's a link to the <a href="http://fargo.io/code/browsers/outlinebrowserdemo.html">demo app</a> on my server so you can see what <a href="https://github.com/scripting/outlineBrowser/blob/master/outlinebrowserdemo.html">outlinebrowserdemo.html</a> looks like.
 
 #### Dependencies
 
