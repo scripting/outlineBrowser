@@ -10,8 +10,10 @@
 		<link rel="stylesheet" href="http://fargo.io/code/fontAwesome/css/font-awesome.min.css"/>
 		<link href="http://fargo.io/code/ubuntuFont.css" rel="stylesheet" type="text/css">
 		
-		<script src="http://fargo.io/code/shared/outlinebrowser/outlinebrowser.js"></script>
-		<link href="http://fargo.io/code/shared/outlinebrowser/outlinebrowser.css" rel="stylesheet" type="text/css">
+		<script src="../outlinebrowser.js"></script>
+		<link href="../outlinebrowser.css" rel="stylesheet" type="text/css">
+		
+		
 		<script>
 			function readHttpFile (url, callback, timeoutInMilliseconds) { //5/27/14 by DW
 				if (timeoutInMilliseconds === undefined) {
@@ -46,9 +48,12 @@
 				font-size: 18px;
 				background-color: whitesmoke;
 				}
+			.divTopPageMessage {
+				margin-top: 45px;
+				}
 			.divPageBody {
 				width: 60%;
-				margin-top: 65px;
+				margin-top: 45px;
 				margin-left: auto;
 				margin-right: auto;
 				border: 1px solid silver;
@@ -76,9 +81,6 @@
 				}
 			.divRenderedOutline .divOutlineText {
 				line-height: 145%;
-				}
-			.divTopPageMessage {
-				margin-top: 25px;
 				}
 			</style>
 		</head>
