@@ -13,7 +13,6 @@
 		<script src="outlinebrowser.js"></script>
 		<link href="outlinebrowser.css" rel="stylesheet" type="text/css">
 		
-		
 		<script>
 			function readHttpFile (url, callback, timeoutInMilliseconds) { //5/27/14 by DW
 				if (timeoutInMilliseconds === undefined) {
@@ -34,7 +33,7 @@
 				}
 			function startup () {
 				console.log ("startup");
-				readHttpFile ("http://liveblog.co/users/davewiner/2015/05/13/appleWatchNotes.json", function (s) {
+				readHttpFile ("outlinedemo.json", function (s) {
 					var jstruct = JSON.parse (s);
 					$("#idOutlineDisplayer").html (renderOutlineBrowser (jstruct, false, undefined, undefined, true));
 					$("#idOutlineTitle").html (jstruct.text);

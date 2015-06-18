@@ -1,0 +1,510 @@
+{
+	"text": "Apple Watch notes",
+	"created": "Wed, 13 May 2015 13:33:24 GMT",
+	"type": "outline",
+	"name": "appleWatchNotes",
+	"hash": "7bb06c5f2c39619a6ea42efb33ade747",
+	"img": "http://scripting.com/2015/05/13/watchlooksgood.png",
+	"collapse": true,
+	"subs": [
+		{
+			"text": "May 27 -- Apple messages are not real-time. Whuh??",
+			"created": "Wed, 27 May 2015 13:25:57 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "Here's something I just figured out. I've been doing a lot of DMs on Twitter this morning. And I'm just now, hours later, getting them as echoes on my Apple Watch. ",
+					"created": "Wed, 27 May 2015 18:25:54 GMT"
+				},
+				{
+					"text": "I've noticed this on my iPad and iPhone too with Slack messages. They arrive instantaneously in the Slack app. But don't show up in AppleLand for 20-30 minutes, sometimes an hour or two. ",
+					"created": "Wed, 27 May 2015 18:26:27 GMT"
+				},
+				{
+					"text": "What good is the watch or iPhone if you have to go to your laptop to get the real-time message stream?",
+					"created": "Wed, 27 May 2015 18:27:09 GMT"
+				},
+				{
+					"text": "Earlier today: Paolo Valdemarin <a href=\"https://www.facebook.com/photo.php?fbid=10153303512134519&set=a.491078724518.269268.500844518&type=1&theater\">tells</a> his 5-day Apple Watch story.",
+					"created": "Wed, 27 May 2015 13:26:06 GMT"
+				}
+			]
+		},
+		{
+			"text": "May 26 -- my how time flies! :-)",
+			"created": "Tue, 26 May 2015 22:34:40 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "I got a beautiful <a href=\"https://www.flickr.com/photos/scriptingnews/17517586673/\">black leather band</a> for my watch.",
+					"created": "Tue, 26 May 2015 22:34:50 GMT"
+				},
+				{
+					"text": "Best part: It was <a href=\"http://www.amazon.com/gp/product/B00X8TBRB6/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1\">only $30</a> on Amazon. ",
+					"created": "Tue, 26 May 2015 22:35:01 GMT"
+				},
+				{
+					"text": "It looks as good as the one <a href=\"http://store.apple.com/us/watch/bands\">from Apple</a> that costs much more. In fact because it's so much less expensive it looks better! :-)",
+					"created": "Tue, 26 May 2015 22:36:04 GMT"
+				},
+				{
+					"text": "I don't like to waste money on stuff like that. I have really middle class values with everything but technology, and watch bands are not technology, sorry Apple! ",
+					"created": "Tue, 26 May 2015 22:36:27 GMT"
+				}
+			]
+		},
+		{
+			"text": "Day 10 -- Fri May 22",
+			"created": "Fri, 22 May 2015 14:43:39 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "Hey I didn't write anything yesterday. Don't take that for a lack of interest. I had kind of a down day. Shit happens. ;-)",
+					"created": "Fri, 22 May 2015 14:43:45 GMT"
+				},
+				{
+					"text": "Chuck <a href=\"https://www.facebook.com/dave.winer.12/posts/350582235149188?comment_id=350583328482412&notif_t=like\">discovered</a> something about the watch which he shared on Facebook.",
+					"created": "Fri, 22 May 2015 14:44:10 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "Interesting tidbit about the Apple Watch. I just discovered that messages work fine without the phone, including voice dictation, as long as you are in range of a known Wifi access point. I went out, forgot my phone, and was totally able to send and receive messages with the watch from a friend's house via wifi."
+						}
+					]
+				},
+				{
+					"text": "There are more comments under Chuck's discovery that are worth checking out.",
+					"created": "Fri, 22 May 2015 14:55:03 GMT"
+				}
+			]
+		},
+		{
+			"text": "Day 8 -- Wed May 20",
+			"created": "Wed, 20 May 2015 13:59:53 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "After taking my shower this morning, I forgot to put on my Apple Watch. I realized this only after working for a bit and realizing that I wasn't being nagged that it's time to get up. ",
+					"created": "Wed, 20 May 2015 13:59:59 GMT"
+				},
+				{
+					"text": "I'm a bad person, obviously, because I could put the watch on, I work at home, it's sitting on the night table in the other room. I could get up and put it on. But I didn't. Not yet.",
+					"created": "Wed, 20 May 2015 14:00:40 GMT"
+				},
+				{
+					"text": "I decided to post this note when I realized the watch wasn't screaming at me from the other room about how I didn't love it, and how much better I would feel if I put it on. I think the watch is being a good sport.",
+					"created": "Wed, 20 May 2015 14:01:16 GMT"
+				},
+				{
+					"text": "Isn't it funny how we anthropomorphize these things? Well, at least I do! :-)",
+					"created": "Wed, 20 May 2015 14:01:55 GMT"
+				},
+				{
+					"text": "Update: After posting this I went and got the watch and <a href=\"https://www.facebook.com/photo.php?fbid=350268795180532&set=a.114620888745325.1073741829.100005922431565&type=1&theater\">put it on</a>. I feel much better now. I didn't know I would do this when I started the post, btw. ",
+					"created": "Wed, 20 May 2015 14:11:34 GMT"
+				}
+			]
+		},
+		{
+			"text": "Day 7 -- Tue May 19",
+			"created": "Tue, 19 May 2015 13:48:52 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "The battery isn't looking so great today. I'm on the second day of a charge, and it's got 20 percent left. Clearly sometime during the day I'm going to have to charge the watch. So the idea that it runs two days on a single charge is not still true. (Just got a reminder to stand.)",
+					"created": "Tue, 19 May 2015 13:48:59 GMT"
+				},
+				{
+					"text": "I've been searching for a new watch band, and when you <a href=\"http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=apple+watch+band\">look</a> on Amazon, you also find watch \"cases\" -- and I wonder why anyone would want one? Then there's a Yahoo <a href=\"https://www.yahoo.com/tech/for-the-love-of-god-you-do-not-need-a-case-for-119303693179.html?src=rss\">piece</a> today saying you don't need a case. I have to agree. You have to worry about dropping phones, since you're always moving them from pocket to hand, and laying them on tables. But the watch is attached to your body. Kind of a different situation. But I do very much still want a new band.",
+					"created": "Tue, 19 May 2015 13:50:10 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "People who say \"But you don't need the Apple Watch either\" are lonely people searching for attention, and not too smart either. ;-)",
+							"created": "Tue, 19 May 2015 14:07:46 GMT"
+						},
+						{
+							"text": "To be clear, of course you don't need the watch, and neither do I. But I like the watch. If life only consisted of needs, we'd be living on a human energy farm, as in The Matrix. Maybe you already live there. Possibly I live there too.",
+							"created": "Tue, 19 May 2015 14:08:59 GMT"
+						}
+					]
+				},
+				{
+					"text": "BTW, the watch's \"is he standing?\" algorithm is pretty stupid, it seems. I just got back from a bathroom break, and believe me, there's a bit of standing involved with that. Seems I should have gotten credit, but I didn't. Happened quite a few times yesterday.",
+					"created": "Tue, 19 May 2015 13:51:44 GMT"
+				}
+			]
+		},
+		{
+			"text": "Day 6 -- Mon May 18",
+			"created": "Mon, 18 May 2015 14:59:30 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "Watch band notes",
+					"created": "Tue, 19 May 2015 00:25:45 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "How long before the watch band is used to display stuff?",
+							"created": "Tue, 19 May 2015 00:25:17 GMT",
+							"collapse": true,
+							"subs": [
+								{
+									"text": "Here you <a href=\"https://itunes.apple.com/app/id982101607\">go</a>.",
+									"created": "Tue, 19 May 2015 00:48:24 GMT"
+								}
+							]
+						},
+						{
+							"text": "I want to get a new watch band, I hate the white band on this thing, looks childish, feels childish. I'd like a nice black leather band, but sorry Apple I just don't think a watch band is worth hundreds of dollars. I'm a middle-class boy! :-)",
+							"created": "Tue, 19 May 2015 00:25:31 GMT"
+						}
+					]
+				},
+				{
+					"text": "This is why the Apple Watch is a significant product. ",
+					"created": "Mon, 18 May 2015 14:59:37 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "It's a <a href=\"https://en.wikipedia.org/wiki/Beachhead\">beachhead</a>. It's computer tech making a landing on the human body and for the first time, sticking. ",
+							"created": "Mon, 18 May 2015 14:59:52 GMT"
+						},
+						{
+							"text": "It provides enough new functionality for some people, including me, to make it stay on my body. And by being there, it creates questions, that will be resolved with new software, and tweaks to the technology.",
+							"created": "Mon, 18 May 2015 15:00:18 GMT"
+						},
+						{
+							"text": "For me the new functionality that's enough",
+							"created": "Mon, 18 May 2015 15:00:54 GMT",
+							"collapse": true,
+							"subs": [
+								{
+									"text": "Time at a glance (I know a regular watch can do this too).",
+									"created": "Mon, 18 May 2015 15:01:07 GMT"
+								},
+								{
+									"text": "Current temperature. This is something I'm always looking up when I go out. I need the info to know how to dress. ",
+									"created": "Mon, 18 May 2015 15:01:24 GMT"
+								},
+								{
+									"text": "It knows when I'm standing, sitting, exercising. Not perfect at any of it, but it can tell me to stand, and can tell me how much exercise I got. There's value in this, esp if it makes me more fit. ",
+									"created": "Mon, 18 May 2015 15:05:03 GMT"
+								}
+							]
+						},
+						{
+							"text": "The rest of it right now, that's just gravy. Being able to tell two bits at any time is enough to keep it where it is, along with the potential of generating new ideas. ",
+							"created": "Mon, 18 May 2015 15:01:52 GMT"
+						},
+						{
+							"text": "I like owning products that help stimulate thinking. This is how early adopter markets work. It's not a mature market like the smartphone market was when Apple entered it. This will grow more slowly, and when we figure out how to use the power, it may explode. But it's made a landing. It's not bouncing like Google Glass did.",
+							"created": "Mon, 18 May 2015 15:06:04 GMT"
+						}
+					]
+				}
+			]
+		},
+		{
+			"text": "Day 4 -- Sat May 16",
+			"created": "Sat, 16 May 2015 20:47:02 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "Yesterday it didn't recognize a 40-minute bike ride as exercise, but today it congratulated me on a 40-minutex walk in the park. So there are some forms that it likes and others it doesn't.",
+					"created": "Sat, 16 May 2015 20:47:13 GMT"
+				},
+				{
+					"text": "Fully charged it overnight.",
+					"created": "Sat, 16 May 2015 20:47:09 GMT"
+				},
+				{
+					"text": "I like exercising with the heart rate monitor. This is the first time I've had one of those. I can see what makes my heart rate go up, that's cool. ;-)",
+					"created": "Sat, 16 May 2015 20:48:06 GMT"
+				},
+				{
+					"text": "Also I noted once today it nagged me about standing up when I was already standing. I won <i>that</i> argument! :-)",
+					"created": "Sat, 16 May 2015 20:48:41 GMT"
+				}
+			]
+		},
+		{
+			"text": "Day 3 -- Fri May 15",
+			"created": "Fri, 15 May 2015 16:34:30 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "Two full days of use, and still 20 percent left on the watch battery.",
+					"created": "Sat, 16 May 2015 03:00:39 GMT"
+				},
+				{
+					"text": "I found out it has a heart rate monitor. So I looked up my heart rate on the web to see if mine is normal. It's low. ",
+					"created": "Fri, 15 May 2015 16:34:32 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "I'm going to use the heart rate monitor when I exercise today. ",
+							"created": "Fri, 15 May 2015 16:40:55 GMT"
+						},
+						{
+							"text": "I think today is a walking day not a bike riding day.",
+							"created": "Fri, 15 May 2015 16:41:07 GMT"
+						},
+						{
+							"text": "Will also be listening to podcasts, if so.",
+							"created": "Fri, 15 May 2015 16:41:15 GMT"
+						}
+					]
+				},
+				{
+					"text": "I also let it remind me to get up once an hour and move around. It did it during basketball last night. I did what it told me to do, and when the watch praised me, I felt good. No shit, I really did.",
+					"created": "Fri, 15 May 2015 16:35:09 GMT"
+				},
+				{
+					"text": "I asked on Twitter and Facebook how to find out what the battery life is, and I now have it in my default watch face. I did not charge the watch last night, because at bedtime it still had over 60 percent left. Now it has 43 percent at 12:30PM. I think it's going to make it another day without a charge. For me, battery life is not an issue. ",
+					"created": "Fri, 15 May 2015 16:35:47 GMT"
+				},
+				{
+					"text": "I didn't like that it nagged me to get out of bed. I'd like to say STFU. Maybe I have to turn Siri on. I don't have it on now. ",
+					"created": "Fri, 15 May 2015 16:37:02 GMT"
+				},
+				{
+					"text": "I like using the Liveblog for this! :-)",
+					"created": "Fri, 15 May 2015 16:37:32 GMT"
+				},
+				{
+					"text": "I also learned about Glances. I did not know about that functionality. How to access it in case you don't know...",
+					"created": "Fri, 15 May 2015 16:38:33 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "Raise the watch to look at it.",
+							"created": "Fri, 15 May 2015 16:39:00 GMT"
+						},
+						{
+							"text": "Swipe up.",
+							"created": "Fri, 15 May 2015 16:39:31 GMT"
+						},
+						{
+							"text": "Swipe left and right to go through the glances.",
+							"created": "Fri, 15 May 2015 16:39:33 GMT"
+						},
+						{
+							"text": "This is very useful stuff and a good UI.",
+							"created": "Fri, 15 May 2015 16:41:48 GMT"
+						}
+					]
+				},
+				{
+					"text": "Why were people so critical of Apple Watch startup experience?",
+					"created": "Fri, 15 May 2015 16:41:55 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "I think it's actually quite well done!",
+							"created": "Fri, 15 May 2015 16:42:08 GMT"
+						},
+						{
+							"text": "My conclusion is the early reviewers don't really understand software.",
+							"created": "Fri, 15 May 2015 16:42:14 GMT"
+						},
+						{
+							"text": "Otherwise, what were the problems exactly??",
+							"created": "Fri, 15 May 2015 16:42:28 GMT"
+						},
+						{
+							"text": "I usually and the canary in the coalmine for UI difficulty, very sensitive to bad design, easily confused. ",
+							"created": "Fri, 15 May 2015 16:42:41 GMT"
+						},
+						{
+							"text": "I haven't found anything yet that isn't fairly intuitive, and I love how much functionality they get into such a small space. ",
+							"created": "Fri, 15 May 2015 16:43:08 GMT"
+						}
+					]
+				},
+				{
+					"text": "Still have not figured out how to read an email when it comes in, or view a Facebook post. Also how did Facebook get set up on here? I didn't ask Apple to do that. Hmmm. ",
+					"created": "Fri, 15 May 2015 16:39:49 GMT"
+				}
+			]
+		},
+		{
+			"text": "Day 2 -- Thu May 14",
+			"created": "Wed, 13 May 2015 17:54:57 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "Took it for a bike ride",
+					"created": "Thu, 14 May 2015 18:49:38 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "Tried to think of something it could do for me while riding.",
+							"created": "Thu, 14 May 2015 18:49:41 GMT"
+						},
+						{
+							"text": "I thought of having it show me where I am on the map. Not that I really need that, I know my way around NYC pretty well.",
+							"created": "Thu, 14 May 2015 18:49:53 GMT"
+						},
+						{
+							"text": "But it's something to do. ",
+							"created": "Thu, 14 May 2015 18:50:11 GMT"
+						},
+						{
+							"text": "But it fails at this, because when the watch idles, it reverts back to the watch face. To get back to the map is too awkward. Not a simple glance.",
+							"created": "Thu, 14 May 2015 18:50:15 GMT"
+						},
+						{
+							"text": "Update: There's a <a href=\"http://scripting.com/2015/05/14/applewatchsetting.png\">setting</a> in the Apple Watch app that lets you say that it should show the last app when you glance, not the watch face. ",
+							"created": "Thu, 14 May 2015 19:26:02 GMT"
+						}
+					]
+				}
+			]
+		},
+		{
+			"text": "Q&A",
+			"created": "Thu, 14 May 2015 18:47:02 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "It's not for listening to stuff",
+					"created": "Thu, 14 May 2015 18:48:53 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "You can use it to control the audio of the iPhone.",
+							"created": "Thu, 14 May 2015 18:49:01 GMT"
+						}
+					]
+				},
+				{
+					"text": "Could it be self-charging?",
+					"created": "Thu, 14 May 2015 18:48:17 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "My old watch,   a Seiko, could charge itself through the motion of the watch. I wonder if Apple considered doing that. I'm constantly moving my watch hand, just typing at the keyboard, and walking around. ",
+							"created": "Wed, 13 May 2015 17:54:58 GMT"
+						}
+					]
+				},
+				{
+					"text": "It does not have a camera",
+					"created": "Wed, 13 May 2015 18:03:10 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "It can be used to control the camera in your iPhone. ",
+							"created": "Thu, 14 May 2015 18:47:16 GMT"
+						},
+						{
+							"text": "Tricky. You can be appearing to look at your watch all the time using it as a viewfinder on your phone's camera. ",
+							"created": "Thu, 14 May 2015 18:47:25 GMT"
+						}
+					]
+				}
+			]
+		},
+		{
+			"text": "First notes",
+			"created": "Wed, 13 May 2015 17:54:50 GMT",
+			"collapse": true,
+			"subs": [
+				{
+					"text": "First-day impression ",
+					"created": "Wed, 13 May 2015 18:09:36 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "I feel like I have super-powers. :-)",
+							"created": "Thu, 14 May 2015 18:51:10 GMT"
+						}
+					]
+				},
+				{
+					"text": "Setup",
+					"created": "Wed, 13 May 2015 13:47:37 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "Setup could have been a little easier. They could have told me to turn the damn thing on, and how to do it. Eventually I just started pressing buttons. It turned on. From there the setup was almost flawless.",
+							"created": "Wed, 13 May 2015 13:33:31 GMT"
+						}
+					]
+				},
+				{
+					"text": "Entering a passcode",
+					"created": "Wed, 13 May 2015 13:34:07 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "They asked if I wanted to enter a passcode. I said yes. Then a <a href=\"http://scripting.com/2015/05/13/createpasscode.png\">screen</a> showed up. No obvious way to enter anything. This was on my iPhone, which has a pretty standard way to do that. ",
+							"created": "Wed, 13 May 2015 13:34:17 GMT"
+						}
+					]
+				},
+				{
+					"text": "I know the time!",
+					"created": "Wed, 13 May 2015 13:34:54 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "I haven't worn a watch in years. I now know the time in ways I haven't known it in a long time. Of course my tendency is to look in the upper right corner of whatever reality I'm consuming. Sometimes I look in the upper right corner of the sky, I get so used to seeing the time there. ",
+							"created": "Wed, 13 May 2015 13:34:59 GMT"
+						}
+					]
+				},
+				{
+					"text": "Getting something new",
+					"created": "Wed, 13 May 2015 13:36:01 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "It's a nice feeling. I felt like my liveblog was new because I just had this experience.",
+							"created": "Wed, 13 May 2015 13:36:05 GMT"
+						}
+					]
+				},
+				{
+					"text": "It looks pretty good",
+					"created": "Wed, 13 May 2015 13:36:27 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "<a href=\"http://scripting.com/2015/05/13/watchlooksgood.png\">Better</a> than I thought it would.",
+							"created": "Wed, 13 May 2015 13:36:31 GMT"
+						}
+					]
+				},
+				{
+					"text": "Can I watch tonight's NBA playoff game on my watch?",
+					"created": "Wed, 13 May 2015 13:49:26 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "Is that too much to ask for?",
+							"created": "Wed, 13 May 2015 13:49:41 GMT"
+						}
+					]
+				},
+				{
+					"text": "How do I read an email?",
+					"created": "Wed, 13 May 2015 14:35:27 GMT",
+					"collapse": true,
+					"subs": [
+						{
+							"text": "I get an email, only see the first few lines, how do I read the rest.",
+							"created": "Wed, 13 May 2015 14:35:40 GMT"
+						},
+						{
+							"text": "Same with a Facebook message.",
+							"created": "Wed, 13 May 2015 14:36:05 GMT"
+						}
+					]
+				}
+			]
+		}
+	]
+}
