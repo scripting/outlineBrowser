@@ -1,10 +1,23 @@
 //code that displays an outline jstruct in javascript
 
 var outlineBrowserData = {
-	version: "0.40",
+	version: "0.41",
 	serialNum: 0
 	}
 
+function ecOutline (idnum) { 
+	var c = document.getElementById ("idOutlineWedge" + idnum), idUL = "#idOutlineLevel" + idnum;
+	if (c.className == "fa fa-caret-down") {
+		c.className = "fa fa-caret-right";
+		c.style.color = "black";
+		$(idUL).slideUp (75);
+		}
+	else {
+		c.className = "fa fa-caret-down";
+		c.style.color = "silver";
+		$(idUL).slideDown (75);
+		}
+	}
 function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkString, flExpanded) {
 	function stringLower (s) {
 		if (s === undefined) { //1/26/15 by DW
@@ -125,19 +138,6 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 	function typeIsDoc (theNode) {
 		var type = getNodeType (theNode);
 		return ((type !== undefined) && (type != "include") && (type != "link") && (type != "tweet"));
-		}
-	function ecOutline (idnum) { 
-		var c = document.getElementById ("idOutlineWedge" + idnum), idUL = "#idOutlineLevel" + idnum;
-		if (c.className == "fa fa-caret-down") {
-			c.className = "fa fa-caret-right";
-			c.style.color = "black";
-			$(idUL).slideUp (75);
-			}
-		else {
-			c.className = "fa fa-caret-down";
-			c.style.color = "silver";
-			$(idUL).slideDown (75);
-			}
 		}
 	function getIcon (idnum, flcollapsed) {
 		var wedgedir, color;
