@@ -20,8 +20,6 @@ I use this code in two places:
 
 2. To render outlines in rivers, to view outlines included in news items. (<a href="http://radio3.io/rivers/demo1/index.html">Example</a>)
 
-As of the initial release, neither of these examples use this actual library, but the goal is to have them do so.
-
 #### Demo app
 
 Here's a link to the <a href="http://fargo.io/code/browsers/outlinebrowserdemo.html">demo app</a> on my server so you can see what <a href="https://github.com/scripting/outlineBrowser/blob/master/outlinebrowserdemo.html">outlinebrowserdemo.html</a> looks like.
@@ -33,4 +31,10 @@ Here's a link to the <a href="http://fargo.io/code/browsers/outlinebrowserdemo.h
 2. Font Awesome
 
 3. Bootstrap Toolkit
+
+#### Updates
+
+#### v0.42 -- 6/29/15 by DW
+
+Fixed a bug. If an img attribute is present, it should be included in the rendering in the left margin of the text. 
 

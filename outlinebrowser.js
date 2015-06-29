@@ -1,7 +1,10 @@
 //code that displays an outline jstruct in javascript
 
+document.write ('<script src="http://fargo.io/code/markdownConverter.js"></script>');
+document.write ('<link href="http://fargo.io/code/browsers/outlinebrowser.css" rel="stylesheet" type="text/css">');
+
 var outlineBrowserData = {
-	version: "0.41",
+	version: "0.42",
 	serialNum: 0
 	}
 
@@ -15,8 +18,21 @@ function ecOutline (idnum) {
 	else {
 		c.className = "fa fa-caret-down";
 		c.style.color = "silver";
-		$(idUL).slideDown (75);
+		$(idUL).slideDown (75, undefined, function () {
+			
+			$(idUL).css ("display", "block");
+			
+			});
 		}
+	}
+function riverGetPermalinkString (urlPermalink, permalinkString) {
+	if (urlPermalink == undefined) {
+		return ("");
+		}
+	if (permalinkString == undefined) { 
+		permalinkString = "#";
+		}
+	return ("<div class=\"divOutlinePermalink\"><a href=\"" + urlPermalink + "\">" + permalinkString + "</a></div>");
 	}
 function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkString, flExpanded) {
 	function stringLower (s) {
@@ -108,6 +124,31 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 			}
 		return (true);
 		}
+	function hotUpText (s, url) { //7/18/14 by DW
+		
+		if (url === undefined) { //makes it easier to call -- 3/14/14 by DW
+			return (s);
+			}
+		
+		function linkit (s) {
+			return ("<a href=\"" + url + "\" target=\"_blank\">" + s + "</a>");
+			}
+		var ixleft = s.indexOf ("["), ixright = s.indexOf ("]");
+		if ((ixleft == -1) || (ixright == -1)) {
+			return (linkit (s));
+			}
+		if (ixright < ixleft) {
+			return (linkit (s));
+			}
+		
+		var linktext = s.substr (ixleft + 1, ixright - ixleft - 1); //string.mid (s, ixleft, ixright - ixleft + 1);
+		linktext = "<a href=\"" + url + "\" target=\"_blank\">" + linktext + "</a>";
+		
+		var leftpart = s.substr (0, ixleft);
+		var rightpart = s.substr (ixright + 1, s.length);
+		s = leftpart + linktext + rightpart;
+		return (s);
+		}
 	function debugNode (theNode) {
 		var attstext = "";
 		for (var x in theNode) {
@@ -154,31 +195,32 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 		var icon = "<span class=\"spOutlineIcon\"><a class=\"aOutlineWedgeLink\" " + clickscript + "><i class=\"fa fa-caret-" + wedgedir + "\" style=\"color: " + color + ";\" id=\"idOutlineWedge" + idnum + "\"></i></a></span>";
 		return (icon);
 		}
-	function riverGetPermalinkString (urlPermalink, permalinkString) {
-		if (urlPermalink == undefined) {
-			return ("");
-			}
-		if (permalinkString == undefined) { 
-			permalinkString = "#";
-			}
-		return ("<div class=\"divOutlinePermalink\"><a href=\"" + urlPermalink + "\">" + permalinkString + "</a></div>");
-		}
 	function expandableTextLink (theText, idLevel) {
 		return ("<a class=\"aOutlineTextLink\" onclick=\"ecOutline (" + idLevel + ")\">" + theText + "</a>");
 		}
 	var htmltext = "", indentlevel = 0, permalink = riverGetPermalinkString (urlPermalink, permalinkString), outlinelevel = 0;
+	var markdown = new Markdown.Converter ();
 	if (flMarkdown === undefined) {
 		flMarkdown = false;
 		}
 	if (flExpanded === undefined) { //10/23/14 by DW
-		flExpanded = riverConfig.flOutlinesExpandedByDefault; //4/16/15 by DW
+		flExpanded = riverBrowserData.flOutlinesExpandedByDefault; //4/16/15 by DW
 		}
 	function add (s) {
 		htmltext += filledString ("\t", indentlevel) + s + "\r\n";
 		}
 	function getHotText (outline) {
 		var origtext = outline.text;
-		return (expandableTextLink (origtext, outlineBrowserData.serialNum)); //5/7/15 by DW
+		var s = hotUpText (outline.text, outline.url);
+		if (s != origtext) {
+			return (s);
+			}
+		else {
+			if (getBoolean (outline.bold)) { //12/6/14 by DW
+				s = "<span class=\"spBoldHead\">" + s + "</span>";
+				}
+			return (expandableTextLink (s, outlineBrowserData.serialNum));
+			}
 		}
 	function hasSubs (outline) {
 		return (outline.subs != undefined) && (outline.subs.length > 0);
@@ -242,23 +284,23 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 			}
 		return (s);
 		}
-	function addChildlessSub (theNode, path) { //5/20/15 by DW
-		if (typeIsDoc (theNode)) {
-			add ("<li><div class=\"divOutlineText\"><a href=\"" + path + "\">" + theNode.text + "</a></div></li>");
-			}
-		else {
-			var type = getNodeType (theNode);
-			switch (type) {
-				case "link":
-					add ("<li><div class=\"divOutlineText\"><a href=\"" + theNode.url + "\">" + theNode.text + "</a></div></li>");
-					break;
-				default:
-					add ("<li><div class=\"divOutlineText\">" + theNode.text + "</div></li>");
-					break;
+	function addSubs (outline, flcollapsed, path) {
+		function addChildlessSub (theNode, path, nodetext) { //5/20/15 by DW
+			if (typeIsDoc (theNode)) {
+				add ("<li><div class=\"divOutlineText\"><a href=\"" + path + "\">" + nodetext + "</a></div></li>");
+				}
+			else {
+				var type = getNodeType (theNode);
+				switch (type) {
+					case "link":
+						add ("<li><div class=\"divOutlineText\"><a href=\"" + theNode.url + "\">" + nodetext + "</a></div></li>");
+						break;
+					default:
+						add ("<li><div class=\"divOutlineText\">" + nodetext + "</div></li>");
+						break;
+					}
 				}
 			}
-		}
-	function addSubs (outline, flcollapsed, path) {
 		if (hasSubs (outline)) {
 			var style = getStylesString (outline, flcollapsed);
 			add ("<ul class=\"ulOutlineList ulLevel" + outlinelevel + "\" id=\"idOutlineLevel" + outlineBrowserData.serialNum++ + "\"" + style + ">"); indentlevel++; outlinelevel++;
@@ -269,12 +311,13 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 						var childpath = path + getNameAtt (child); //5/20/15 by DW
 						if (hasSubs (child)) {
 							add ("<li>"); indentlevel++;
-							add ("<div class=\"divOutlineText\">" + getIcon (outlineBrowserData.serialNum, flchildcollapsed) + img + getHotText (child) + "</div>");
+							var textlink = expandableTextLink (child.text, outlineBrowserData.serialNum);
+							add ("<div class=\"divOutlineText\">" + getIcon (outlineBrowserData.serialNum, flchildcollapsed) + img + textlink + "</div>");
 							addSubs (child, flchildcollapsed, childpath + "/");
 							add ("</li>"); indentlevel--;
 							}
 						else {
-							addChildlessSub (child, childpath);
+							addChildlessSub (child, childpath, img + child.text);
 							}
 						}
 					}
@@ -295,7 +338,7 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 				style = " style=\"display: none;\"";
 				}
 			var opendiv = "<div class=\"divMarkdownSubs\" id=\"idOutlineLevel" + outlineBrowserData.serialNum++ + "\" " + style + ">";
-			add (opendiv + marked (markdowntext) + "</div>");
+			add (opendiv + markdown.makeHtml (markdowntext) + "</div>");
 			}
 		else {
 			add ("<div class=\"divOutlineSubs\">"); indentlevel++;
