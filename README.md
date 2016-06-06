@@ -32,9 +32,3 @@ Here's a link to the <a href="http://fargo.io/code/browsers/outlinebrowserdemo.h
 
 3. Bootstrap Toolkit
 
-#### Updates
-
-#### v0.42 -- 6/29/15 by DW
-
-Fixed a bug. If an img attribute is present, it should be included in the rendering in the left margin of the text. 
-

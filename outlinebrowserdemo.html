@@ -18,7 +18,7 @@
 				if (timeoutInMilliseconds === undefined) {
 					timeoutInMilliseconds = 30000;
 					}
-				var jxhr = $.ajax ({ 
+				var jxhr = $.ajax ({  
 					url: url,
 					dataType: "text" , 
 					timeout: timeoutInMilliseconds 
@@ -35,7 +35,11 @@
 				console.log ("startup");
 				readHttpFile ("outlinedemo.json", function (s) {
 					var jstruct = JSON.parse (s);
-					$("#idOutlineDisplayer").html (renderOutlineBrowser (jstruct, false, undefined, undefined, true));
+					
+					var urlPermalink = window.location.href;
+					var permalinkString = "#";
+					
+					$("#idOutlineDisplayer").html (renderOutlineBrowser (jstruct, false, urlPermalink, permalinkString, true));
 					$("#idOutlineTitle").html (jstruct.text);
 					
 					});

@@ -53,7 +53,6 @@
 .divRenderedOutline .divRenderedImage {
 	margin-bottom: 2px;
 	}
-
 .divRenderedOutline .aOutlineTextLink {
 	cursor: pointer;
 	color: black;
@@ -76,4 +75,10 @@
 	font-size: .85em;
 	}
 .divRenderedOutline .divOutlineText a {
+	}
+.spNodePermalink {
+	margin-left: 8px;
+	}
+.spNodePermalink a {
+	color: purple;
 	}

@@ -225,12 +225,12 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 	function hasSubs (outline) {
 		return (outline.subs != undefined) && (outline.subs.length > 0);
 		}
-	function getImgHtml (imgatt) { //4/28/15 by DW
-		if (imgatt === undefined) {
+	function getImgHtml (outline) { //7/15/15 by DW
+		if ((outline.type !== undefined) || (outline.img === undefined)) {
 			return ("");
 			}
 		else {
-			return ("<img style=\"float: right; margin-left: 24px; margin-top: 14px; margin-right: 14px; margin-bottom: 14px;\" src=\"" + imgatt +"\">");
+			return ("<img style=\"float: right; margin-left: 24px; margin-top: 14px; margin-right: 14px; margin-bottom: 14px;\" src=\"" + outline.img +"\">");
 			}
 		}
 	function gatherStylesFromOutline (outline) { //11/5/14 by DW
@@ -272,52 +272,67 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 	function getSubsMarkdownText (outline) {
 		var s = "", style = getStylesString (outline, false);
 		for (var i = 0; i < outline.subs.length; i++) {
-			var child = outline.subs [i], img = "", imgatt = $(child).attr ("img");
-			
+			var child = outline.subs [i], img = "", imgatt;
 			if (!getBoolean (child.isComment)) { //5/2/15 by DW
-				s += getImgHtml (imgatt) + child.text + "\r\r";
+				s += getImgHtml (child) + child.text + "\r\r";
 				if (hasSubs (child)) {
 					s += getSubsMarkdownText (child);
 					}
 				}
-			
 			}
 		return (s);
 		}
-	function addSubs (outline, flcollapsed, path) {
-		function addChildlessSub (theNode, path, nodetext) { //5/20/15 by DW
-			if (typeIsDoc (theNode)) {
-				add ("<li><div class=\"divOutlineText\"><a href=\"" + path + "\">" + nodetext + "</a></div></li>");
-				}
-			else {
-				var type = getNodeType (theNode);
-				switch (type) {
-					case "link":
-						add ("<li><div class=\"divOutlineText\"><a href=\"" + theNode.url + "\">" + nodetext + "</a></div></li>");
-						break;
-					default:
-						add ("<li><div class=\"divOutlineText\">" + nodetext + "</div></li>");
-						break;
+	function getNodePermalink (theNode) { //6/5/16 by DW
+		var permalinkstring = "";
+		if (getBoolean (theNode.flPermalink)) {
+			var theName = "", splits = stripMarkup (theNode.text).split (" ");
+			for (var i = 0; i < splits.length; i++) {
+				var ch = splits [i] [0];
+				if (isAlpha (ch)) {
+					theName += ch.toLowerCase ();
+					}
+				if (theName.length >= 4) {
+					break;
 					}
 				}
+			permalinkstring = "<a name=\"" + theName + "\"></a><span class=\"spNodePermalink\"><a href=\"#" + theName + "\">" + "#" + "</a></span>";
 			}
+		return (permalinkstring);
+		}
+	function addChildlessSub (theNode, path) { //5/20/15 by DW
+		if (typeIsDoc (theNode)) {
+			add ("<li><div class=\"divOutlineText\"><a href=\"" + path + "\">" + theNode.text + "</a>" + getNodePermalink (theNode) + "</div></li>");
+			}
+		else {
+			var type = getNodeType (theNode);
+			switch (type) {
+				case "link":
+					add ("<li><div class=\"divOutlineText\"><a href=\"" + theNode.url + "\">" + theNode.text + "</a>" + getNodePermalink (theNode) + "</div></li>");
+					break;
+				default:
+					add ("<li><div class=\"divOutlineText\">" + theNode.text + getNodePermalink (theNode) + "</div></li>");
+					break;
+				}
+			}
+		}
+	function addSubs (outline, flcollapsed, path) {
 		if (hasSubs (outline)) {
 			var style = getStylesString (outline, flcollapsed);
 			add ("<ul class=\"ulOutlineList ulLevel" + outlinelevel + "\" id=\"idOutlineLevel" + outlineBrowserData.serialNum++ + "\"" + style + ">"); indentlevel++; outlinelevel++;
 			for (var i = 0; i < outline.subs.length; i++) {
-				var child = outline.subs [i], flchildcollapsed = getBoolean (child.collapse), img = getImgHtml (child.img);
+				var child = outline.subs [i], flchildcollapsed = getBoolean (child.collapse), img = getImgHtml (child);
 				if (!beginsWith (child.text, "<rule")) { //5/28/15 by DW
 					if (!getBoolean (child.isComment)) { //5/2/15 by DW
 						var childpath = path + getNameAtt (child); //5/20/15 by DW
 						if (hasSubs (child)) {
 							add ("<li>"); indentlevel++;
 							var textlink = expandableTextLink (child.text, outlineBrowserData.serialNum);
-							add ("<div class=\"divOutlineText\">" + getIcon (outlineBrowserData.serialNum, flchildcollapsed) + img + textlink + "</div>");
+							add ("<div class=\"divOutlineText\">" + getIcon (outlineBrowserData.serialNum, flchildcollapsed) + img + textlink + getNodePermalink (child) + "</div>");
 							addSubs (child, flchildcollapsed, childpath + "/");
 							add ("</li>"); indentlevel--;
 							}
 						else {
-							addChildlessSub (child, childpath, img + child.text);
+							addChildlessSub (child, childpath);
 							}
 						}
 					}
