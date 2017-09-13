@@ -30,6 +30,9 @@
 	}
 .divRenderedOutline .spOutlineIcon {
 	margin-right: -11px;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 	}
 .divRenderedOutline .aOutlineWedgeLink {
 	color: black;
@@ -81,4 +84,8 @@
 	}
 .spNodePermalink a {
 	color: purple;
+	}
+.ulNumberedSubs li {
+	list-style-type: decimal;
+	margin-left: 20px;
 	}
