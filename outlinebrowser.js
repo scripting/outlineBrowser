@@ -6,10 +6,37 @@ document.write ('<link href="http://fargo.io/code/browsers/outlinebrowser.css" r
 document.write ('<script src="http://fargo.io/code/shared/emojify.js"></script>');  //7/3/17 by DW
 
 var outlineBrowserData = {
-	version: "0.43",
+	version: "0.5.0",
 	serialNum: 0,
 	flTextBasedPermalinks: true, //1/26/17 by DW
-	flProcessEmoji: true //7/3/17 by DW
+	flProcessEmoji: true, //7/3/17 by DW
+	expandCollapseCallback: function (idnum) { //9/22/17 by DW
+		}
+	}
+
+function getExpansionState () {
+	var theList = "";
+	$(".aOutlineWedgeLink i").each (function () {
+		var flExpanded = $(this).hasClass ("fa-caret-down");
+		if (flExpanded) {
+			var id = $(this).attr ("id"); //something like idOutlineWedge17
+			theList += stringDelete (id, 1, "idOutlineWedge".length) + ",";
+			}
+		});
+	if (theList.length > 0) {
+		theList = stringMid (theList, 1, theList.length - 1); //remove trailing comma
+		}
+	return (theList);
+	}
+function applyExpansionState (theList) {
+	var splits = theList.split (",");
+	for (var i = 0; i < splits.length; i++) {
+		var idWedge = "#idOutlineWedge" + splits [i];
+		var idLevel = "#idOutlineLevel" + splits [i];
+		$(idWedge).attr ("class", "fa fa-caret-down");
+		$(idWedge).css ("color", "silver");
+		$(idLevel).css ("display", "block");
+		}
 	}
 
 function ecOutline (idnum) { 
@@ -28,6 +55,7 @@ function ecOutline (idnum) {
 			
 			});
 		}
+	outlineBrowserData.expandCollapseCallback (idnum); //9/22/17 by DW
 	}
 function riverGetPermalinkString (urlPermalink, permalinkString) {
 	if (urlPermalink == undefined) {
