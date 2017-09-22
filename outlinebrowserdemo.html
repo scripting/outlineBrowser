@@ -42,6 +42,12 @@
 					$("#idOutlineDisplayer").html (renderOutlineBrowser (jstruct, false, urlPermalink, permalinkString, true));
 					$("#idOutlineTitle").html (jstruct.text);
 					
+					if (localStorage.expandCollapseState !== undefined) {
+						applyExpansionState (localStorage.expandCollapseState)
+						}
+					outlineBrowserData.expandCollapseCallback = function (idnum) {
+						localStorage.expandCollapseState = getExpansionState ();
+						}
 					});
 				}
 			</script>

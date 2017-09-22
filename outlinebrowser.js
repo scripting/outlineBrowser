@@ -16,6 +16,13 @@ var outlineBrowserData = {
 
 function getExpansionState () {
 	var theList = "";
+	function stringDelete (s, ix, ct) {
+		var start = ix - 1;
+		var end = (ix + ct) - 1;
+		var s1 = s.substr (0, start);
+		var s2 = s.substr (end);
+		return (s1 + s2);
+		}
 	$(".aOutlineWedgeLink i").each (function () {
 		var flExpanded = $(this).hasClass ("fa-caret-down");
 		if (flExpanded) {
@@ -24,7 +31,7 @@ function getExpansionState () {
 			}
 		});
 	if (theList.length > 0) {
-		theList = stringMid (theList, 1, theList.length - 1); //remove trailing comma
+		theList = stringDelete (theList, theList.length, 1); //remove trailing comma
 		}
 	return (theList);
 	}
