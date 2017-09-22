@@ -26,6 +26,12 @@ Here's a link to the <a href="http://fargo.io/code/browsers/outlinebrowserdemo.h
 
 #### Dependencies
 
+### Updates
+
+#### v0.5.0 -- 9/22/17 by DW
+
+Saving and restoring expansion state. Two new <a href="https://github.com/scripting/outlineBrowser/blob/master/outlinebrowser.js#L17">routines</a>, getExpansionState and applyExpansionState. The demo has been <a href="https://github.com/scripting/outlineBrowser/blob/master/outlinebrowserdemo.html">updated</a> to support the feature. Here's the <a href="http://scripting.com/2017/09/22.html#a125135">writeup</a> on Scripting News.
+
 1. jQuery
 
 2. Font Awesome
