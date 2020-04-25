@@ -262,11 +262,15 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 		return (outline.subs != undefined) && (outline.subs.length > 0);
 		}
 	function getImgHtml (outline) { //7/15/15 by DW
-		if ((outline.type !== undefined) || (outline.img === undefined)) {
+		var urlImage = outline.image;
+		if (urlImage === undefined) {
+			urlImage = outline.img;
+			}
+		if ((outline.type !== undefined) || (urlImage === undefined)) {
 			return ("");
 			}
 		else {
-			return ("<img style=\"float: right; margin-left: 24px; margin-top: 14px; margin-right: 14px; margin-bottom: 14px;\" src=\"" + outline.img +"\">");
+			return ("<img style=\"float: right; margin-left: 24px; margin-top: 14px; margin-right: 14px; margin-bottom: 14px;\" src=\"" + urlImage +"\">");
 			}
 		}
 	function gatherStylesFromOutline (outline) { //11/5/14 by DW
@@ -388,10 +392,20 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 				if (getBoolean (outline.flBulletedSubs)) { //8/24/18 by DW
 					ulAddedClass = " ulBulletedSubs";
 					}
+				else {
+					if (getBoolean (outline.flCodeSubs)) { //4/23/20 by DW
+						ulAddedClass = " ulCodeSubs";
+						}
+					}
 				}
 			add ("<ul class=\"ulOutlineList" + ulAddedClass + " ulLevel" + outlinelevel + "\" id=\"idOutlineLevel" + outlineBrowserData.serialNum++ + "\"" + style + ">"); indentlevel++; outlinelevel++;
 			for (var i = 0; i < outline.subs.length; i++) {
 				var child = outline.subs [i], flchildcollapsed = getBoolean (child.collapse), img = getImgHtml (child);
+				
+				if (flchildcollapsed) {
+					console.log ("addSubs: child.text == " + child.text + ", flchildcollapsed == " + flchildcollapsed);
+					}
+				
 				if (!beginsWith (child.text, "<rule")) { //5/28/15 by DW
 					if (!getBoolean (child.isComment)) { //5/2/15 by DW
 						var childpath = path + getNameAtt (child); //5/20/15 by DW
@@ -437,7 +451,7 @@ function renderOutlineBrowser (outline, flMarkdown, urlPermalink, permalinkStrin
 		}
 	else {
 		add ("<div class=\"divRenderedOutline\">"); indentlevel++;
-		add ("<div class=\"divItemHeader divOutlineHead\">" + hotUpText (outline.text, outline.url) + permalink + "</div>");
+		add ("<div class=\"divItemDescription\">" + hotUpText (outline.text, outline.url) + permalink + "</div>");
 		add ("</div>"); indentlevel--;
 		}
 	
